@@ -9,6 +9,11 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Space Mono', monospace;
+    /* height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
   }
 `;
 
