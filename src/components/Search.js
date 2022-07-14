@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "../App";
 import { FaSearch } from "react-icons/fa";
 import styled from "styled-components";
 
 const Search = () => {
-  
+ 
+
   const submitHandler = (e) => {
     e.preventDefault();
   };
+
 
   return (
     <Form onSubmit={submitHandler}>
@@ -23,6 +24,7 @@ const Form = styled.form`
   display: flex;
   align-items: center;
   position: relative;
+  box-shadow: ${props => props.theme.boxShadow};
   svg {
     position: absolute;
     left: 15px;
