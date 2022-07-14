@@ -12,13 +12,17 @@ const Header = () => {
     theme.theme === "light" ? theme.setTheme("dark") : theme.setTheme("light");
   };
 
-  const themeName = theme.theme === "light" ? "Light" : "Dark";
+  const themeName = theme.theme === "light" ? "DARK" : "LIGHT";
   const icon =
-    theme.theme === "light" ? <CgSun size="1rem" /> : <HiMoon size="1rem" />;
+    theme.theme === "light" ? (
+      <HiMoon size="1.5rem" />
+    ) : (
+      <CgSun size="1.5rem" />
+    );
 
   return (
     <StyledHeader>
-      <h1>DEV FINDER</h1>
+      <h1>devSearcher</h1>
       <button onClick={changeTheme}>
         <span>{themeName}</span> {icon}
       </button>
@@ -31,10 +35,24 @@ const StyledHeader = styled(motion.header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color:${props => props.theme.text1};
+  color: ${(props) => props.theme.text1};
   button {
     display: flex;
     align-items: center;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    color: ${(props) => props.theme.text2};
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      color: #2b3442;
+    }
+    span {
+      margin-right: 1rem;
+    }
   }
 `;
 

@@ -1,16 +1,67 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUser } from "../features/user/userSlice";
+import React, { useContext } from "react";
+import { ThemeContext } from "../App";
+import { FaSearch } from "react-icons/fa";
+import styled from "styled-components";
 
 const Search = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchUser("Iretoms"));
-  }, [dispatch]);
+  
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
 
-  const { user } = useSelector((state) => state.user);
-
-  return <div>{user.name}</div>;
+  return (
+    <Form onSubmit={submitHandler}>
+      <FaSearch color="#0079ff" size="1.5rem" />
+      <Input type="text" placeholder="Github Username..." />
+      <Button type="submit">Search</Button>
+    </Form>
+  );
 };
+
+const Form = styled.form`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  svg {
+    position: absolute;
+    left: 15px;
+  }
+`;
+
+const Input = styled.input`
+  background-color: ${(props) => props.theme.bgColor1};
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+  height: 3.5rem;
+  padding: 0 3rem 0 4rem;
+  border: none;
+  border-radius: 10px;
+  color: ${(props) => props.theme.text2};
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: ${(props) => props.theme.text2};
+  }
+`;
+
+const Button = styled.button`
+  position: absolute;
+  right: 5px;
+  font-family: inherit;
+  height: 3rem;
+  width: 6rem;
+  border: none;
+  background-color: #1077ff;
+  color: #fff;
+  padding: 0 1rem;
+  border-radius: 9px;
+  cursor: pointer;
+  &:active {
+    transform: scale(0.98);
+  }
+`;
 
 export default Search;
