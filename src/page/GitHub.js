@@ -42,7 +42,7 @@ const Section = styled(motion.section)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: ${(props) => props.theme.body};
   transition: all 0.5s ease;
