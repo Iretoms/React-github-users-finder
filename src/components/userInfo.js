@@ -65,6 +65,10 @@ const Profile = styled(motion.div)`
   gap: 1.8rem;
   border-radius: 10px;
   box-shadow: ${(props) => props.theme.boxShadow};
+
+  @media screen and (max-width: 700px){
+    flex-direction: column;
+  }
 `;
 
 const Image = styled.div`
@@ -77,6 +81,10 @@ const Image = styled.div`
     width: 100%;
     height: 100%;
     object-fit: center;
+  }
+
+  @media screen and (max-width: 700px) {
+    align-self: center;
   }
 `;
 
@@ -97,11 +105,33 @@ const Name = styled.div`
   small {
     color: ${(props) => props.theme.text2};
   }
+
+  @media screen and (max-width: 700px) {
+    div {
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+    small {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    flex-direction:column;
+    div {
+      margin-bottom: 0.8rem;
+    }
+  }
 `;
 
 const About = styled.div`
   margin-top: 1rem;
   color: ${(props) => props.theme.text1};
+
+  @media screen and (max-width: 700px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const Activity = styled.div`
@@ -114,6 +144,29 @@ const Activity = styled.div`
     text-align: center;
     margin-right: 3rem;
     color: ${(props) => props.theme.text1};
+  }
+
+  @media screen and (max-width: 700px) {
+    div {
+      h2 {
+        font-size: 1.3rem;
+      }
+      small {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    div {
+      margin-right: 1.5rem;
+      h2 {
+        font-size: 1.1rem;
+      }
+      small {
+        font-size: 0.7rem;
+      }
+    }
   }
 `;
 
@@ -128,6 +181,12 @@ const Link = styled.div`
     text-decoration: none;
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  @media screen and (max-width:700px) {
+    a {
+      font-size: 0.8rem;
     }
   }
 `;

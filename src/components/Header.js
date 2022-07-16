@@ -54,6 +54,14 @@ const StyledHeader = styled(motion.header)`
       margin-right: 1rem;
     }
   }
+
+  @media screen and (max-width: 700px) {
+    width: 30rem;
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 22rem;
+  }
 `;
 
 export default Header;

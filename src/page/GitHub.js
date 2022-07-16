@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 const GitHub = () => {
 
-  const { user, pending, error } = useSelector((state) => state.user);
+  const { user, pending } = useSelector((state) => state.user);
   return (
     <Section>
       <Header />
@@ -48,5 +48,13 @@ const Section = styled(motion.section)`
 const Container = styled(motion.div)`
   width: 40rem;
   margin-top: 2rem;
+
+  @media screen and (max-width: 700px){
+    width: 30rem;
+  }
+
+  @media screen and (max-width: 550px){
+    width: 22rem;
+  }
 `;
 export default GitHub;
