@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "../components/Header";
 import Search from "../components/Search";
 import UserInfo from "../components/UserInfo";
@@ -6,14 +6,9 @@ import UserInfo from "../components/UserInfo";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUser } from "../features/user/userSlice";
+import { useSelector } from "react-redux";
 
 const GitHub = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchUser("Iretoms"));
-  }, [dispatch]);
 
   const { user, pending, error } = useSelector((state) => state.user);
   return (
@@ -21,17 +16,19 @@ const GitHub = () => {
       <Header />
       <Container>
         <Search />
-        <UserInfo
-          name={user.name}
-          username={user.login}
-          joined={user.created_at}
-          bio={user.bio}
-          picture={user.avatar_url}
-          repos={user.public_repos}
-          following={user.following}
-          followers={user.followers}
-          link={user.html_url}
-        />
+        {!pending && (
+          <UserInfo
+            name={user.name}
+            username={user.login}
+            joined={user.created_at}
+            bio={user.bio}
+            picture={user.avatar_url}
+            repos={user.public_repos}
+            following={user.following}
+            followers={user.followers}
+            link={user.html_url}
+          />
+        )}
       </Container>
     </Section>
   );

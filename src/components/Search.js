@@ -1,19 +1,31 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import styled from "styled-components";
 
+import { useDispatch } from "react-redux";
+import { fetchUser } from "../features/user/userSlice";
+
 const Search = () => {
- 
+  const dispatch = useDispatch();
+  const [username, setUsername] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
-  };
 
+    dispatch(fetchUser(username));
+
+    setUsername("");
+  };
 
   return (
     <Form onSubmit={submitHandler}>
       <FaSearch color="#0079ff" size="1.5rem" />
-      <Input type="text" placeholder="Github Username..." />
+      <Input
+        type="text"
+        placeholder="Github Username..."
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
       <Button type="submit">Search</Button>
     </Form>
   );
@@ -24,7 +36,7 @@ const Form = styled.form`
   display: flex;
   align-items: center;
   position: relative;
-  box-shadow: ${props => props.theme.boxShadow};
+  box-shadow: ${(props) => props.theme.boxShadow};
   svg {
     position: absolute;
     left: 15px;

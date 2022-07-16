@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { BsLink45Deg } from "react-icons/bs"
 
+import { fadeIn } from "../animation";
+
 const UserInfo = ({
   name,
   username,
@@ -15,7 +17,7 @@ const UserInfo = ({
   link,
 }) => {
   return (
-    <Profile>
+    <Profile variants={fadeIn} initial="hidden" animate="show">
       <Image>
         <img src={picture} alt={name} />
       </Image>

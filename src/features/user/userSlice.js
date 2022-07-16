@@ -4,7 +4,7 @@ import { getUserURL } from "../../api";
 
 const initialState = {
     user: {},
-    pending: null,
+    pending: false,
     error: false
 }
 
