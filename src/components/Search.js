@@ -29,6 +29,7 @@ const Search = () => {
       <Button type="submit">Search</Button>
     </Form>
   );
+  
 };
 
 const Form = styled.form`
