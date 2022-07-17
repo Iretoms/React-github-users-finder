@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { BsLink45Deg } from "react-icons/bs"
+import { BsLink45Deg } from "react-icons/bs";
 
 import { fadeIn } from "../animation";
 
@@ -48,7 +48,7 @@ const UserInfo = ({
         </Activity>
 
         <Link>
-          <BsLink45Deg size="1.5rem"/>
+          <BsLink45Deg size="1.5rem" />
           <a href={link}>{link}</a>
         </Link>
       </div>
@@ -66,7 +66,7 @@ const Profile = styled(motion.div)`
   border-radius: 10px;
   box-shadow: ${(props) => props.theme.boxShadow};
 
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     flex-direction: column;
   }
 `;
@@ -118,7 +118,7 @@ const Name = styled.div`
   }
 
   @media screen and (max-width: 550px) {
-    flex-direction:column;
+    flex-direction: column;
     div {
       margin-bottom: 0.8rem;
     }
@@ -184,7 +184,7 @@ const Link = styled.div`
     }
   }
 
-  @media screen and (max-width:700px) {
+  @media screen and (max-width: 700px) {
     a {
       font-size: 0.8rem;
     }

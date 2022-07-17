@@ -9,7 +9,6 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
 const GitHub = () => {
-
   const { user, pending } = useSelector((state) => state.user);
   return (
     <Section>
@@ -49,11 +48,11 @@ const Container = styled(motion.div)`
   width: 40rem;
   margin-top: 2rem;
 
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     width: 30rem;
   }
 
-  @media screen and (max-width: 550px){
+  @media screen and (max-width: 550px) {
     width: 22rem;
   }
 `;
