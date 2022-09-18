@@ -50,7 +50,7 @@ const UserInfo = ({
 
         <Link>
           <BsLink45Deg size="1.5rem" />
-          <a target='_blank' href={link}>{link}</a>
+          <a target='_blank' rel="noreferrer" href={link}>{link}</a>
         </Link>
       </div>
     </Profile>

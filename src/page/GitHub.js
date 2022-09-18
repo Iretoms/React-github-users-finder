@@ -10,13 +10,15 @@ import { useSelector } from "react-redux";
 
 const GitHub = () => {
   const { user, pending } = useSelector((state) => state.user);
+
   return (
     <Section>
       <Header />
       <Container>
         <Search />
-        {!pending && (
+        {pending && (
           <UserInfo
+            pending={pending}
             name={user.name}
             username={user.login}
             joined={user.created_at}
