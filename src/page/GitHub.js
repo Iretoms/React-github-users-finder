@@ -18,16 +18,7 @@ const GitHub = () => {
         <Search />
         {!pending && (
           <UserInfo
-            pending={pending}
-            name={user.name}
-            username={user.login}
-            joined={user.created_at}
-            bio={user.bio}
-            picture={user.avatar_url}
-            repos={user.public_repos}
-            following={user.following}
-            followers={user.followers}
-            link={user.html_url}
+            user={user}
           />
         )}
       </Container>

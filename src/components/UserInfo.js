@@ -5,30 +5,31 @@ import { BsLink45Deg } from "react-icons/bs";
 
 import { fadeIn } from "../animation";
 
-const UserInfo = ({
-  name,
-  username,
-  joined,
-  bio,
-  picture,
-  repos,
-  following,
-  followers,
-  link,
-}) => {
+const UserInfo = ({ user }) => {
+  const {
+    name,
+    login,
+    created_at,
+    bio,
+    avatar_url,
+    public_repos,
+    following,
+    followers,
+    html_url,
+  } = user;
   return (
     <Profile variants={fadeIn} initial="hidden" animate="show">
       <Image>
-        <img src={picture} alt={name} />
+        <img src={avatar_url} alt={name} />
       </Image>
 
       <div class="user-info">
         <Name>
           <div>
             <h2>{name}</h2>
-            <small>@{username}</small>
+            <small>@{login}</small>
           </div>
-          <small>Joined {new Date(joined).toDateString()}</small>
+          <small>Joined {new Date(created_at).toDateString()}</small>
         </Name>
 
         <About>{bio ? bio : ""}</About>
@@ -36,7 +37,7 @@ const UserInfo = ({
         <Activity>
           <div class="repos">
             <small>Repos</small>
-            <h2>{repos}</h2>
+            <h2>{public_repos}</h2>
           </div>
           <div class="followers">
             <small>Followers</small>
@@ -50,7 +51,9 @@ const UserInfo = ({
 
         <Link>
           <BsLink45Deg size="1.5rem" />
-          <a target='_blank' rel="noreferrer" href={link}>{link}</a>
+          <a target="_blank" rel="noreferrer" href={html_url}>
+            {html_url}
+          </a>
         </Link>
       </div>
     </Profile>
