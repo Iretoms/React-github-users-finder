@@ -16,7 +16,7 @@ const GitHub = () => {
       <Header />
       <Container>
         <Search />
-        {pending && (
+        {!pending && (
           <UserInfo
             pending={pending}
             name={user.name}
