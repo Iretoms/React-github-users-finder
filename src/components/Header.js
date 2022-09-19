@@ -1,16 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext , useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { HiMoon } from "react-icons/hi";
 import { CgSun } from "react-icons/cg";
 import { ThemeContext } from "../App";
+import { light } from "../style/Theme";
 
 const Header = () => {
   const theme = useContext(ThemeContext);
 
+  const setMode = (mode) => {
+    window.localStorage.setItem('theme', mode)
+    theme.setTheme(mode)
+
+  }
+
   const changeTheme = () => {
-    theme.theme === "light" ? theme.setTheme("dark") : theme.setTheme("light");
+    
+    theme.theme === "light" ? setMode("dark") : setMode("light");
+    
   };
+
+useEffect(()=> {
+ const localTheme = window.localStorage.getItem('theme')
+ localTheme ? theme.setTheme(localTheme) : theme.setTheme('dark') 
+
+} , [])
 
   const themeName = theme.theme === "light" ? "DARK" : "LIGHT";
   const icon =
