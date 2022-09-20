@@ -1,39 +1,31 @@
-import React, { useContext , useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { HiMoon } from "react-icons/hi";
 import { CgSun } from "react-icons/cg";
-import { ThemeContext } from "../App";
-import { light } from "../style/Theme";
+import { ThemeContext } from "../context/ThemeContext";
+
 
 const Header = () => {
-  const theme = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const setMode = (mode) => {
-    window.localStorage.setItem('theme', mode)
-    theme.setTheme(mode)
-
-  }
-
-  const changeTheme = () => {
-    
-    theme.theme === "light" ? setMode("dark") : setMode("light");
-    
+    window.localStorage.setItem("theme", mode);
+    setTheme(mode);
   };
 
-useEffect(()=> {
- const localTheme = window.localStorage.getItem('theme')
- localTheme ? theme.setTheme(localTheme) : theme.setTheme('dark') 
+  const changeTheme = () => {
+    theme === "light" ? setMode("dark") : setMode("light");
+  };
 
-} , [])
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem("theme");
+    localTheme ? setTheme(localTheme) : setTheme("dark");
+  }, []);
 
-  const themeName = theme.theme === "light" ? "DARK" : "LIGHT";
+  const themeName = theme === "light" ? "DARK" : "LIGHT";
   const icon =
-    theme.theme === "light" ? (
-      <HiMoon size="1.5rem" />
-    ) : (
-      <CgSun size="1.5rem" />
-    );
+    theme === "light" ? <HiMoon size="1.5rem" /> : <CgSun size="1.5rem" />;
 
   return (
     <StyledHeader>
