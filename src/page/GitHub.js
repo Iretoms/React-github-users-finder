@@ -16,11 +16,7 @@ const GitHub = () => {
       <Header />
       <Container>
         <Search />
-        {!pending && (
-          <UserInfo
-            user={user}
-          />
-        )}
+        {!pending && user && <UserInfo user={user} />}
       </Container>
     </Section>
   );

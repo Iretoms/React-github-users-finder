@@ -3,15 +3,18 @@ import axios from "axios";
 import { getUserURL } from "../../api";
 
 const initialState = {
-    user: {},
-    pending: false,
-    error: false
-}
+  user: null,
+  pending: false,
+  error: false,
+};
 
-export const fetchUser = createAsyncThunk('user/fetchUser', async (username)=>{
-        const userData = await axios.get(getUserURL(username))
-        return userData.data
-})
+export const fetchUser = createAsyncThunk(
+  "user/fetchUser",
+  async (username) => {
+    const userData = await axios.get(getUserURL(username));
+    return userData.data;
+  }
+);
 
 export const userSlice = createSlice({
   name: "user",
@@ -32,6 +35,5 @@ export const userSlice = createSlice({
     },
   },
 });
-
 
 export default userSlice.reducer;
